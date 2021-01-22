@@ -8,16 +8,18 @@ import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
-import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.ToggleButton;
+
+import  com.facebook.ads.*;
 /*
  *
  * its publilish with zimtechjks with muzammal123 passowrd
@@ -35,6 +37,7 @@ public class MainActivity extends Activity {
     Parameters parameater;
     boolean flag;
     ToggleButton onoffbutton;
+    private AdView adView,adviewtop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,42 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         onoffbutton = findViewById(R.id.tb1);
         Context context = this;
+
+
+
+        adView = new AdView(this, "IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID", AdSize.RECTANGLE_HEIGHT_250);
+
+        // Find the Ad Container
+        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
+
+        // Add the ad view to your activity layout
+        adContainer.addView(adView);
+
+        // Request an ad
+        adView.loadAd();
+
+
+
+
+        adviewtop = new AdView(this, "IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID", AdSize.RECTANGLE_HEIGHT_250);
+
+        // Find the Ad Container
+        LinearLayout adContainertop = (LinearLayout) findViewById(R.id.banner_containertop);
+
+        // Add the ad view to your activity layout
+        adContainertop.addView(adviewtop);
+
+        // Request an ad
+        adviewtop.loadAd();
+
+
+
+
+
+// Initialize the Audience Network SDK
+        AudienceNetworkAds.initialize(this);
+
+
 
         boolean isFlashAvailable = getApplicationContext().getPackageManager()
                 .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
@@ -175,5 +214,27 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
+
+
+
+
+
     }
+
+
+    @Override
+    protected void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+
+        if (adviewtop != null) {
+            adviewtop.destroy();
+        }
+        super.onDestroy();
+
+    }
+
 }

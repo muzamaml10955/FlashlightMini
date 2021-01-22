@@ -9,6 +9,13 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:gravity="center">
+    <LinearLayout
+        android:id="@+id/banner_containertop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        />
     <ToggleButton
         android:disabledAlpha="1"
         android:layout_gravity="center"
@@ -21,4 +28,11 @@
         android:text="FlashLight Button"
         android:textOff="ON"
         android:textOn="OFF" />
+    <LinearLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+     android:layout_gravity="bottom"
+        />
   </LinearLayout>
