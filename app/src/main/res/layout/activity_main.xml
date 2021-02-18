@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
-    android:paddingTop="30dp"
-    android:paddingBottom="30dp"
-    tools:context=".MainActivity"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    android:paddingLeft="30dp"
+    android:paddingTop="30dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="30dp"
+    tools:context=".MainActivity">
+
     <LinearLayout
         android:id="@+id/banner_containertop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="bottom"
-        />
+        android:orientation="vertical" />
+
+
+
     <ToggleButton
-        android:disabledAlpha="1"
-        android:layout_gravity="center"
         android:id="@+id/tb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:disabledAlpha="1"
         android:padding="10dp"
-        android:textSize="50sp"
-
         android:text="FlashLight Button"
+
         android:textOff="ON"
-        android:textOn="OFF" />
-    <LinearLayout
+        android:textOn="OFF"
+        android:textSize="50sp" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView_banner_admob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="10dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner_id" />
+
+
+   <!-- <LinearLayout
         android:id="@+id/banner_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-     android:layout_gravity="bottom"
-        />
-  </LinearLayout>
+        android:layout_gravity="bottom"
+        android:orientation="vertical" />-->
+</LinearLayout>

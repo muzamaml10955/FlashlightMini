@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Flashlight Mini</string>
+    <string name="fb_mediumRectr_ad_id">IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</string>
+    <string name="fb_int_id">IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</string>
+    <string name="facebook_app_id">appoid</string>
+    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
 </resources>
